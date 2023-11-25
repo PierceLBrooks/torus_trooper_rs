@@ -664,24 +664,24 @@ impl<'a, 'm, 'p> AppRunner<TTRunnerData<'a, 'm, 'p>> for TTRunner {
         data.manager.get_turn()
     }
 
-    fn do_vanish(&self, data: &mut TTRunnerData) {
+    fn do_vanish(self: &mut TTRunner, data: &mut TTRunnerData) {
         data.manager.kill();
     }
 
-    fn do_change_direction(&self, data: &mut TTRunnerData, direction: f64) {
+    fn do_change_direction(self: &mut TTRunner, data: &mut TTRunnerData, direction: f64) {
         data.bullet.deg = dtor(direction as f32);
     }
 
-    fn do_change_speed(&self, data: &mut TTRunnerData, speed: f64) {
+    fn do_change_speed(self: &mut TTRunner, data: &mut TTRunnerData, speed: f64) {
         data.bullet.speed = speed as f32 * VEL_SDM_SS_RATIO;
     }
 
-    fn do_accel_x(&self, _: f64) {
+    fn do_accel_x(self: &mut TTRunner, _: f64) {
         // TODO
         panic!("do_accel_x");
     }
 
-    fn do_accel_y(&self, _: f64) {
+    fn do_accel_y(self: &mut TTRunner, _: f64) {
         // TODO
         panic!("do_accel_y");
     }

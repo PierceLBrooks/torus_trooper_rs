@@ -24,6 +24,7 @@ pub mod glu;
 #[cfg(feature = "game_recorder")]
 mod game_recorder;
 
+use piston::window::Size;
 use piston::event_loop::*;
 use piston::input::*;
 use std::error::Error;
@@ -184,7 +185,7 @@ impl MainLoop {
             }
 
             if let Some(r) = e.resize_args() {
-                params.screen.resized(r);
+                params.screen.resized(Size::from(r.window_size));
             }
 
             if let Some(r) = e.render_args() {

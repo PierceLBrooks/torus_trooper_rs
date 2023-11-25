@@ -1,6 +1,5 @@
 #[cfg(feature = "glutin_backend")]
 use glutin_window::GlutinWindow;
-use opengl_graphics::OpenGL;
 use piston::window::{OpenGLWindow, Size, WindowSettings};
 #[cfg(feature = "sdl_backend")]
 use sdl2_window::Sdl2Window;
@@ -45,11 +44,7 @@ impl Screen {
 
     #[cfg(feature = "glutin_backend")]
     pub fn physical_size(&self) -> (f64, f64) {
-        let dpi_factor = if let Some(window) = &self.window {
-            window.window.get_hidpi_factor()
-        } else {
-            1.
-        };
+        let dpi_factor = 1.;
         (self.size.width * dpi_factor, self.size.height * dpi_factor)
     }
 
@@ -96,9 +91,7 @@ impl Screen {
     }
 
     fn window_settings(&self) -> WindowSettings {
-        let opengl = OpenGL::V2_1;
         WindowSettings::new("Torus Trooper", self.size)
-            .opengl(opengl)
             .vsync(true)
             .fullscreen(self.fullscreen)
             .exit_on_esc(false)

@@ -56,7 +56,7 @@ bitflags! {
         const A = 0b0000_0001;
         const B = 0b0000_0010;
 
-        const ANY = Self::A.bits | Self::B.bits;
+        const ANY = Self::A.bits() | Self::B.bits();
     }
 }
 

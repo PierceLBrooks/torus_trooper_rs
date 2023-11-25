@@ -5,7 +5,7 @@ version = "0.1.0"
 authors = ["Arnaud de Bossoreille <arnaud.debossoreille@gmail.com>"]
 
 [dependencies]
-bitflags = "2.4"
+bitflags = { version = "2.4", features = ["serde"] }
 bulletml = "0.2"
 derive-new = "0.6"
 diff = { version = "0.1", optional = true }
