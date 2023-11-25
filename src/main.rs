@@ -227,9 +227,9 @@ fn parse_luminosity(s: &str) -> Result<usize, Box<dyn Error>> {
 
 #[derive(StructOpt, Debug)]
 struct Options {
-    #[structopt(long, default_value = "100", parse(try_from_str = "parse_brightness"))]
+    #[structopt(long, default_value = "100", parse(try_from_str = parse_brightness))]
     brightness: usize,
-    #[structopt(long, default_value = "0", parse(try_from_str = "parse_luminosity"))]
+    #[structopt(long, default_value = "0", parse(try_from_str = parse_luminosity))]
     luminosity: usize,
     #[structopt(long, default_value = "640")]
     width: usize,

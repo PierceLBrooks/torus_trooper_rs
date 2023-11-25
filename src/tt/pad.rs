@@ -37,7 +37,7 @@ pub struct PadState {
 }
 
 bitflags! {
-    #[derive(Serialize, Deserialize)]
+    #[derive(PartialEq, Eq, Clone, Copy, Debug, Serialize, Deserialize)]
     pub struct PadDirection: u8 {
         const NONE = 0;
 
@@ -49,7 +49,7 @@ bitflags! {
 }
 
 bitflags! {
-    #[derive(Serialize, Deserialize)]
+    #[derive(PartialEq, Eq, Clone, Copy, Debug, Serialize, Deserialize)]
     pub struct PadButtons: u8 {
         const NONE = 0;
 
